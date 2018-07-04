@@ -1,0 +1,137 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+  jQuery( document ).ready(function() {
+    //NIVEL 1
+    jQuery( ".item_nv" ).click(function() {
+      tabid = jQuery(this).attr('target_tab');
+      content = jQuery(this).text();
+      tabview(tabid, content, '.tab_nv', 1);
+    });
+
+    //NIVEL 2
+    jQuery( ".item_nv2" ).click(function() {
+      tabid = jQuery(this).attr('target_tab');
+      tabview(tabid, '', '.tab_nv2', 2);
+    });
+
+    //NIVEL 3
+    jQuery( ".item_nv3" ).click(function() {
+      tabid = jQuery(this).attr('target_tab');
+      tabview(tabid, '', '.tab_nv3', 3);
+    });
+
+    //MUESTRA EL TAB SELECCIONADO
+    function tabview(tabid, content, element, tipo){
+      jQuery(element).each(function () {
+          jQuery(this).hide();
+      });
+      jQuery('#' +tabid).show();
+
+      if(tipo == 1){
+        jQuery('#tabtit').html('<img src="http://localhost:8080/business_movi/wp-content/uploads/2016/03/'+tabid+'.png">'+content);
+      }
+
+    }
+    
+    /*iniciliza los 3 niveles*/
+    jQuery('.tab_nv').each(function () {
+      jQuery(this).hide();
+    });
+
+    jQuery('.tab_nv2').each(function () {
+      jQuery(this).hide();
+    });
+
+    jQuery('.tab_nv3').each(function () {
+      jQuery(this).hide();
+    });
+
+    jQuery('#tab1').show();
+    jQuery('#tab1_level2').show();
+    jQuery('#tab1_level3').show();
+    
+  });
+</script>
+
+
+<div class="tabmenu">
+  <a class="mks_button mks_button_large squared item_nv" target_tab="tab1" onclick="javascript: void(0)">Big Data Movistar</a> 
+
+  <a class="mks_button mks_button_large squared item_nv" target_tab="tab2" onclick="javascript: void(0)">Mensaje Interactivo Movistar</a> 
+
+  <a class="mks_button mks_button_large squared item_nv"  target_tab="tab3" onclick="javascript: void(0)">Mensaje Movistar</a> 
+
+  <a class="mks_button mks_button_large squared item_nv"  target_tab="tab4" onclick="javascript: void(0)">Soluciones Digitales Movistar</a> 
+
+  <a class="mks_button mks_button_large squared item_nv" target_tab="tab5" onclick="javascript: void(0)">USSD Movistar</a> 
+</div>
+
+<div class="tab_nv_main">
+  <div id="tabtit">
+    <img src="http://localhost:8080/business_movi/wp-content/uploads/2016/03/tab1.png"> Big Data Movistar
+  </div>
+  <br>
+
+  <div class="tab_nv" id="tab1">
+    <ul>
+        <li>
+          <a class="mks_button mks_button_large squared item_nv2" target_tab="tab1_level2" onclick="javascript: void(0)">sub 1 L1</a>
+          <ul>
+            <li>
+              <a class="mks_button mks_button_large squared item_nv3" target_tab="tab1_level3" onclick="javascript: void(0)">sub 1 L2 1</a>
+            </li>
+            <li>
+              <a class="mks_button mks_button_large squared item_nv3" target_tab="tab2_level3" onclick="javascript: void(0)">sub 2 L2 1</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="mks_button mks_button_large squared item_nv2" target_tab="tab2_level2" onclick="javascript: void(0)">sub 2 L1</a>
+          <ul>
+            <li>
+              <a class="mks_button mks_button_large squared item_nv3" target_tab="tab1_level3" onclick="javascript: void(0)">sub 1 L2 2</a>
+            </li>
+            <li>
+              <a class="mks_button mks_button_large squared item_nv3" target_tab="tab2_level3" onclick="javascript: void(0)">sub 2 L2 2</a>
+            </li>
+          </ul>
+        </li>
+    </ul>
+    
+    <div class="tab_nv2" id="tab1_level2">
+      <div class="tab_nv3" id="tab1_level3">
+        1
+      </div>
+      <div class="tab_nv3" id="tab2_level3">
+        2
+      </div>
+    </div>
+    <div class="tab_nv2" id="tab2_level2">
+      <div class="tab_nv3" id="tab1_level3">
+        1
+      </div>
+      <div class="tab_nv3" id="tab2_level3">
+        2
+      </div>
+    </div>
+  </div>
+
+  <div class="tab_nv" id="tab2">
+    2
+  </div>
+
+  <div class="tab_nv" id="tab3">
+    3
+  </div>
+
+  <div class="tab_nv" id="tab4">
+    4
+  </div>
+
+  <div class="tab_nv" id="tab5">
+    5
+  </div>
+  <div class="asesoremos">
+    <img src="http://localhost:8080/business_movi/wp-content/uploads/2016/03/asesoremos.png">
+  </div>
+</div>
